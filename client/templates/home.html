@@ -1,0 +1,21 @@
+<template name="home">
+    <a href="{{pathFor 'question'}}" class="btn btn-default btn-lg btn-answer">Start</a>
+</template>
+
+<template name="question">
+    <h3>Offered answers: <br>{{#each offeredAnswers}}
+        <button type="button" class="btn btn-default btn-lg btn-answer" id="0">{{this}}</button>
+    {{/each}}</h3>
+    <br>
+    <h3>answer: {{rightAnswer}}</h3>
+    <h3>variables: {{variables}}</h3>
+    <h3>myname: {{myname}}</h3>
+
+    <!--
+    <button type="button" class="btn btn-default btn-lg btn-answer" id="0">Answer1</button>
+    <span><button type="button" class="btn btn-default btn-lg btn-answer" id="1">Answer2</button></span>
+         <br>
+    <button type="button" class="btn btn-default btn-lg btn-answer" id="2">Answer3</button>
+    <span><button type="button" class="btn btn-default btn-lg btn-answer" id="3">Answer4</button></span>
+    -->
+</template>
