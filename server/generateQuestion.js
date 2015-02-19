@@ -8,16 +8,33 @@ var questionGenerator = {
     _lowerIntervalBoundary: 10,
     _upperIntervalBoundary: 40,
 
+    //flashcard: this._generateFlashcard(),
+/*
+    _generateFlashcard: function() {
 
-    _generateFlashcard: function (){
-        var flashcard = {};
-        flashcard.variables = this._getVariables();
-        flashcard.rightAnswer = this._getRightAnswer(this.variables);
-        flashcard.offeredAnswers = this._getOfferedAnswers(this.variables);
-        //console.log("flashcard was generated. returning it now");
-        return flashcard;
+         var flashcard = {};
+         flashcard.variables = this._getVariables();
+         flashcard.rightAnswer = this._getRightAnswer(this.variables);
+         flashcard.offeredAnswers = this._getOfferedAnswers(this.variables);
+         console.log("flashcard was generated. returning it now");
+         return flashcard;
+
 
     },
+
+    */
+    /*
+    _generateTest: {
+
+        variables: this._getVariables(),
+        rightAnswer: this._getRightAnswer(this.variables),
+        offeredAnswers: this._getOfferedAnswers(this.variables),
+
+
+    },
+    */
+
+
 
     _getVariables: function() {
         var variables = [];
@@ -89,16 +106,25 @@ var questionGenerator = {
 }
 
 
-var testQuestion =  {
-    //console.log("im in testQuestion function on the client"),
-    variables: [2,3],
-    rightAnswer: 5,
-    offeredAnswers: [1,5,7,8],
+var testQuestion = function() {
+    var card = {}; //console.log("im in testQuestion function on the client"),
+    //variables: [2,3],
+    card.variables = questionGenerator._getVariables(),
+    card.rightAnswer = questionGenerator._getRightAnswer(card.variables),
+    //rightAnswer: questionGenerator._getOfferedAnswers(this.variables),
+    //offeredAnswers: [1,5,7,8],
+    card.offeredAnswers = questionGenerator._getOfferedAnswers(card.variables),
+    //text: "test from session variable"
+    console.log("inside testQuestion function: " + card);
+    return card;
 }
 
 Meteor.methods ({
     getQuestion: function() {
-        return testQuestion;
+        //return testQuestion;
+        var card = testQuestion();
+        console.log("Inside Meteor.methods: " + card);
+        return card;
 
     },
 

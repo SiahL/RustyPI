@@ -2,26 +2,39 @@
 Template.question.helpers({
     variables: function () {
         //return testQuestion.variables;
-        Meteor.call("getTest");
-        return Meteor.call("getQuestion");
+        //Meteor.call("getTest");
+        //return Meteor.call("getQuestion");
+        return Session.get("flashcard") && Session.get("flashcard").variables;
     },
 
-    /*
+
     rightAnswer: function() {
-        return testQuestion.rightAnswer;
+        return Session.get("flashcard") && Session.get("flashcard").rightAnswer;
     },
 
     offeredAnswers: function() {
-        return testQuestion.offeredAnswers;
+        return Session.get("flashcard") && Session.get("flashcard").offeredAnswers;
     },
 
-    */
+
     myname: function() {
         return "testtxt client";
     },
 
 
 });
+
+Template.question.created = function () {
+    Meteor.call("getQuestion", function (error, result) {
+        if (error) { console.log ("error"); }
+        else { Session.set("flashcard", result); }
+    })
+};
+
+Template.question.question = function (){
+    console.log(Session.get("flashcard").text);
+    return Session.get("flashcard").text;
+};
 
 /*
 Template.home.events ({
