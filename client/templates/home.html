@@ -3,8 +3,9 @@
 </template>
 
 <template name="question">
+
     <h3>Offered answers: <br>{{#each offeredAnswers}}
-        <button type="button" class="btn btn-default btn-lg btn-answer" id="0">{{this}}</button>
+        <button type="button" class="btn btn-default btn-lg btn-answer" id="{{this}}">{{this}}</button>
     {{/each}}</h3>
     <br>
     <h3>answer: {{rightAnswer}}</h3>

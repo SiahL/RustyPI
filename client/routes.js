@@ -17,8 +17,8 @@ Router.route('/sum', {
     data: function() {
         console.log("i'm in /sum route");
 
-        var flashcard = question._generateFlashcard;
-        return flashcard;
+        //var flashcard = question._generateFlashcard;
+        //return flashcard;
     }
 });
 
