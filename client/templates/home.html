@@ -1,11 +1,28 @@
 <template name="home">
-    <a href="{{pathFor 'question'}}" class="btn btn-default btn-lg btn-answer">Start</a>
+
+    <a href="{{pathFor 'question'}}" id="+" class="btn btn-default btn-lg btn-answer">+</a>
+    <a href="{{pathFor 'question'}}" id="-" class="btn btn-default btn-lg btn-answer">-</a>
+    <a href="{{pathFor 'question'}}" id="*" class="btn btn-default btn-lg btn-answer">*</a>
+    <a href="{{pathFor 'question'}}" id="/" class="btn btn-default btn-lg btn-answer">/</a>
+
+<!--
+    {{#if isTrue}}
+        <a href="{{pathFor 'correct'}}" class="btn btn-default btn-lg btn-answer">CorrectStart</a>
+    {{else}}
+        <a href="{{pathFor 'incorrect'}}" class="btn btn-default btn-lg btn-answer">IncorrectStart</a>
+    {{/if}}
+-->
 </template>
 
 <template name="question">
-
+<!--
     <h3>Offered answers: <br>{{#each offeredAnswers}}
         <button type="button" class="btn btn-default btn-lg btn-answer" id="{{this}}">{{this}}</button>
+    {{/each}}</h3>
+    <a href="{{pathFor 'question'}}" class="btn btn-default btn-lg btn-answer">Next</a>
+    -->
+<h3>Offered answers: <br>{{#each offeredAnswers}}
+    <a href="{{pathFor 'answer'}}" class="btn btn-default btn-lg btn-answer" id="{{this}}">{{this}}</a>
     {{/each}}</h3>
     <br>
     <h3>answer: {{rightAnswer}}</h3>
@@ -21,4 +38,21 @@
     <button type="button" class="btn btn-default btn-lg btn-answer" id="2">Answer3</button>
     <span><button type="button" class="btn btn-default btn-lg btn-answer" id="3">Answer4</button></span>
     -->
+</template>
+
+<template name="correct">
+    <h2>Correct!</h2>
+    <button type="button" class="btn btn-success btn-lg btn-answer" id="something">get right answer</button>
+    <br>
+    <a href="{{pathFor 'question'}}" class="btn btn-default btn-lg btn-answer">Next</a>
+    <a href="{{pathFor 'home'}}" class="btn btn-default btn-lg btn-answer">home</a>
+</template>
+
+<template name="incorrect">
+    <h2>Incorrect!</h2>
+    <button type="button" class="btn btn-danger btn-lg btn-answer" id="wrong">something</button>
+    <h3>The right answer is: something</h3>
+    <br>
+    <a href="{{pathFor 'question'}}" class="btn btn-default btn-lg btn-answer">Next</a>
+    <a href="{{pathFor 'home'}}" class="btn btn-default btn-lg btn-answer">home</a>
 </template>
