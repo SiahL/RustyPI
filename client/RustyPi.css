@@ -2,41 +2,10 @@ body {
 
     font-size: 16px;
     font-family: "Open Sans", serif;
-    /*background: url(https://www.google.com/search?q=wallpaper+hd&espv=2&biw=944&bih=884&tbm=isch&source=lnt&tbs=isz:ex,iszw:1920,iszh:1080#imgdii=_&imgrc=AgpzQTo8-lawIM%253A%3BqyVnNVPL89FtCM%3Bhttp%253A%252F%252Fwallpaperswide.com%252Fdownload%252Fcountry_road_late_summer-wallpaper-1920x1080.jpg%3Bhttp%253A%252F%252Fwallpaperswide.com%252Fcountry_road_late_summer-wallpapers.html%3B1920%3B1080) no-repeat center center fixed;*/
-    /*background: url('images.jpg') no-repeat fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
-
-#first {
-    padding-top: 50px;
-    background: none;
-    /*-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;*/
-    max-width: 200px;
-}
-
-#second {
-    background: lightblue;
-    padding-left: 0px;
-
-    padding-bottom: 40px;
-    width: 100%;
-    margin-top: 200px;
-    /*background: url(http://placehold.it/1350x890/FFFF00/&text=photo2) no-repeat center center ;
-    max-width: 200px;*/
-}
-
-#third {
-    background: yellow;
-    padding-top: 200px;
-    margin-top: 300px;
-    z-index: 100;
-    display: block;
 }
 
 .row {
@@ -68,6 +37,11 @@ body {
     padding-right: 10px;
 }
 
+.btn-question {
+    min-width: 120px;
+    min-height: 50px;
+
+}
 .centered {
     margin: 0px auto;
 }

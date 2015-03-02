@@ -8,14 +8,12 @@ var questionGenerator = {
     _lowerIntervalBoundary: 2,
     _upperIntervalBoundary: 40,
 
-    //flashcard: this._generateFlashcard(),
-
     _generateFlashcard: function(operator) {
         var flashcard = {};
         flashcard.variables = this._getVariables(operator);
         flashcard.rightAnswer = this._getRightAnswer(flashcard.variables, operator);
         flashcard.offeredAnswers = this._getOfferedAnswers(flashcard.variables, operator);
-
+        flashcard.operation = this._getOperation(flashcard.variables, operator);
         return flashcard;
 
     },
@@ -50,7 +48,6 @@ var questionGenerator = {
                 }
             }
 
-
             variables.push(generatedNumber);
         }
 
@@ -76,8 +73,6 @@ var questionGenerator = {
                 answer = answer / listOfVariables[i];
             }
         }
-
-
         return answer;
     },
 
@@ -106,6 +101,17 @@ var questionGenerator = {
         offeredAnswers = this._randomizeListOfAnswers(offeredAnswers);
 
         return offeredAnswers;
+
+    },
+
+    _getOperation: function(listOfVariables, operator) {
+        var operation = "" + listOfVariables[0];
+
+        for (var i=1; i<listOfVariables.length; i++) {
+            operation += " " + operator + " " + listOfVariables[i];
+        }
+
+        return operation;
 
     },
 
@@ -139,35 +145,11 @@ var questionGenerator = {
 
 }
 
-
-
-var generateQuestion = function(operator) {
-    var card = {}; //console.log("im in testQuestion function on the client"),
-    //variables: [2,3],
-    card.variables = questionGenerator._getVariables(operator),
-    card.rightAnswer = questionGenerator._getRightAnswer(card.variables, operator),
-    //rightAnswer: questionGenerator._getOfferedAnswers(this.variables),
-    //offeredAnswers: [1,5,7,8],
-    card.offeredAnswers = questionGenerator._getOfferedAnswers(card.variables, operator),
-    //text: "test from session variable"
-    console.log("inside testQuestion function: " + card);
-    return card;
-}
-
 Meteor.methods ({
     getQuestion: function(operator) {
-        //return testQuestion;
-        //var card = generateQuestion();
         var card = questionGenerator._generateFlashcard(operator);
-        console.log("inside Meteor.methods: " + operator);
-        console.log("Inside Meteor.methods: " + card);
         return card;
 
     },
-
-    getTest: function() {
-        console.log("get test was called. Trying to return testtxt");
-        return "testtxt server";
-    }
 
 })

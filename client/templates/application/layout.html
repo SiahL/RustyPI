@@ -2,7 +2,9 @@
     {{> navbar}}
     {{> header}}
     <div class="container">
+        <!--
         <h2>Question</h2>
+
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
@@ -12,15 +14,15 @@
             </div>
             <div class="col-sm-3"></div>
         </div>
-
+-->
         <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6">
-                <div class="centered" id="answers">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <div class="container-fluid" id="answers">
                     {{> yield}}
                 </div>
             </div>
-            <div class="col-sm-3"></div>
+            <div class="col-sm-2"></div>
         </div>
     </div>
 </template>
